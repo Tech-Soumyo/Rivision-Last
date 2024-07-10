@@ -9,6 +9,8 @@ function App() {
   const [password, setPassword] = useState("");
   const passwordRef = useRef(null);
 
+  // useCallback(fn, dependencies)
+
   const passWordGenerator = useCallback(() => {
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQUSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -28,6 +30,8 @@ function App() {
     passwordRef.current?.setSelectionRange(0, 20);
     window.navigator.clipboard.writeText(password);
   }, [password]);
+
+  // useEffect(useCallback(), dependencies[])
 
   useEffect(() => {
     passWordGenerator();
